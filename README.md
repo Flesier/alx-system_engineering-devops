@@ -1,1 +1,1 @@
-This is a shell script
+Task0- a script that switches the current user to the user
