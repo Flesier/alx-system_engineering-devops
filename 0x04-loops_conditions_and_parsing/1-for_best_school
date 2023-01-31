@@ -1,10 +1,7 @@
 #!/usr/bin/env bash
-# print Best School 10 times
+# A bash script that diplays Best School 10 times
 
-for i in {1..10}
+for (( c=1; c<=10; c++ ))
 do
-	if [ $i -le 10 ]
-	then
-		echo "Best School"
-	fi
+    echo "Best School"
 done
