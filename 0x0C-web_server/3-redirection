@@ -28,11 +28,8 @@
 #service nginx restart
 
 #NEW CODE
-sudo apt-get update
-sudo apt-get install -y nginx
-
-echo "Hello World!" | sudo tee /var/www/html/index.html
-string_for_replacement="server_name _;\n\trewrite ^\/redirect_me https:\/\/www.github.com/Flesier permanent;"
-sudo sed -i "s/server_name _;/$string_for_replacement/" /etc/nginx/sites-enabled/default
-
-sudo service nginx restart
+apt-get -y update
+apt-get -y install nginx
+new_location='\n\tlocation /redirect_me {\n\t\trewrite ^/redirect_me(.*)$ https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;\n\t}'
+sed -i "/server_name _;/ a \ $new_location" /etc/nginx/sites-available/default
+sudo /etc/init.d/nginx restart
