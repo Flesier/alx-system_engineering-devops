@@ -1,0 +1,10 @@
+[Unit]
+Description=Gunicorn Service
+After=network.target
+
+[Service]
+WorkingDirectory=/path/to/your/project
+ExecStart=/path/to/gunicorn gunicorn --workers 3 --bind 0.0.0.0:5003 --log-file /tmp/airbnb-error.log --access-logfile /tmp/airbnb-access.log hbnb:app
+
+[Install]
+WantedBy=multi-user.target
